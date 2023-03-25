@@ -1,5 +1,5 @@
 try:
-    file = open('docs/app.conf', 'r')
+    file = open('data/app.conf', 'r')
     line = file.readline()
     linecheck = line.split(" ")
     linecheck[2] = linecheck[2].replace('\n', '')
@@ -19,6 +19,16 @@ if flag == False:
     a = int(input('a = '))
     b = int(input('b = '))
     c = int(input('c = '))
+    with open('data/app.conf', 'w+') as conf:
+        ast = str(a)
+        bst = str(b)
+        cst = str(c)
+        conf.write(ast)
+        conf.write(' ')
+        conf.write(bst)
+        conf.write(' ')
+        conf.write(cst)
+
 elif flag == True:
     a, b, c = line.split(" ")
     a, b, c = int(a), int(b), int(c)
@@ -30,6 +40,6 @@ for i in range(a):
 
 print(arr)
 strrr = str(arr)
-with open('docs/result.dat', 'w') as result:
+with open('data/result.dat', 'w+') as result:
     result.write(strrr)
 
